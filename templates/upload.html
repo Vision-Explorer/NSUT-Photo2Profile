@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Vision Explorer</title>
+   <style>
+      :root {
+         --color: gray;
+      }
+
+      body {
+         display: grid;
+         place-items: center;
+         height: 100vh;
+         width: 100vw;
+         margin: 0;
+         padding: 0;
+         font-family: monospace;
+         color: var(--color);
+         background-color: rgba(128, 128, 128, 0.2);
+      }
+
+      form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         gap: 25px;
+         height: 300px;
+         width: 450px;
+         border: 3px dashed var(--color);
+         font-size: 24px;
+         background-color: white;
+      }
+
+      .DAD img {
+         display: block;
+         margin: auto;
+         height: 60px;
+         width: 80px;
+      }
+
+      .browse-button {
+         padding: 5px 10px;
+         border: 1px solid var(--color);
+         font-size: 20px;
+         cursor: pointer;
+         transition: all 200ms;
+      }
+
+      .browse-button:hover {
+         background-color: gray;
+         color: white;
+      }
+   </style>
+</head>
+
+<body>
+   <form id="uploadForm" action="http://localhost:5000/dashboard" method="POST" enctype="multipart/form-data">
+      <div class="DAD">
+         <img src="./upload_image.png" alt="">
+         Drag & Drop
+      </div>
+      <div>OR</div>
+      <label class="browse-button" for="imageUpload">Browse</label>
+      <input type="file" name="file" id="imageUpload" hidden />
+   </form>
+
+   <script>
+      imageUpload.addEventListener('change', () => {
+         console.log('triggered');
+         uploadForm.submit();
+      })
+   </script>
+</body>
+
+</html>

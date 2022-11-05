@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Explorer</title>
+    <style>
+        body {
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin: auto;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    {% if name %}
+    <h1>{{name}}</h1>
+    {% endif %}
+    {% if img_path %}
+    <img src={{img_path}} alt={{img_path}}>
+    {% endif %}
+</body>
+
+</html>
