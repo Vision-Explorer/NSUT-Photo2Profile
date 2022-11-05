@@ -76,4 +76,4 @@ def uploader():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(5000)
