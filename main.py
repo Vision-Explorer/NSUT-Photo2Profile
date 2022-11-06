@@ -60,13 +60,13 @@ def uploader():
         file_name = f'temp.{f.filename.split(".")[-1]}'
         f.save(file_name)
 
-        best_path = "./not_found/not_found.jpg"
+        best_path = "./static/not_found/not_found.jpg"
 
-        folders = listdir('./photo')
+        folders = listdir('./static')
         for folder in folders:
-            images = listdir(f'./photo/{folder}')
+            images = listdir(f'./static/{folder}')
             for image in images:
-                image_path = f'./photo/{folder}/{image}'
+                image_path = f'./static/{folder}/{image}'
                 best_path = compare(file_name, image_path, best_path)
 
         relative_img_path = "." + best_path
