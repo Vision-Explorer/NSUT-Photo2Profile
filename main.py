@@ -6,16 +6,19 @@ from flask_cors import CORS
 
 def compare(test_path, data1path, data2path):
     # test image
+    print(test_path)
     image = cv2.imread(test_path)
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     histogram = cv2.calcHist([gray_image], [0], None, [256], [0, 256])
 
     # data1 image
+    print(data1path)
     image = cv2.imread(data1path)
     gray_image1 = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     histogram1 = cv2.calcHist([gray_image1], [0], None, [256], [0, 256])
 
     # data2 image
+    print(data2path)
     image = cv2.imread(data2path)
     gray_image2 = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     histogram2 = cv2.calcHist([gray_image2], [0], None, [256], [0, 256])
@@ -77,4 +80,4 @@ def uploader():
 
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(debug=True)
