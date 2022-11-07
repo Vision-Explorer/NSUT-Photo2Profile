@@ -60,9 +60,10 @@ def uploader():
         file_name = f'temp.{f.filename.split(".")[-1]}'
         f.save(file_name)
 
-        best_path = "./static/not_found/not_found.jpg"
+        best_path = "./static/Not_Found/not_found.jpg"
 
         folders = listdir('./static')
+        folders.remove('Upload_Image')
         for folder in folders:
             images = listdir(f'./static/{folder}')
             for image in images:
@@ -70,7 +71,7 @@ def uploader():
                 best_path = compare(file_name, image_path, best_path)
 
         relative_img_path = "." + best_path
-        person_name = best_path.split('/')[-2]
+        person_name = best_path.split('/')[-2].replace("_", " ")
 
         return render_template(r'./dashboard.html', name=person_name, img_path=relative_img_path)
 
