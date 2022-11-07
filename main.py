@@ -70,10 +70,9 @@ def uploader():
                 image_path = f'./static/{folder}/{image}'
                 best_path = compare(file_name, image_path, best_path)
 
-        relative_img_path = "." + best_path
         person_name = best_path.split('/')[-2].replace("_", " ")
 
-        return render_template(r'./dashboard.html', name=person_name, img_path=relative_img_path)
+        return render_template(r'./dashboard.html', name=person_name, img_path=best_path)
 
 
 if __name__ == '__main__':
